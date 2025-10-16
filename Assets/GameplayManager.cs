@@ -59,11 +59,12 @@ public class GameplayManager : NetworkBehaviour
     private void ShowObserverDebug(int numberOfPlayers)
     {
         Debug.Log(numberOfPlayers);
+        Debug.Log(playerBall.Owner);
     }
 
     [ObserversRpc]
     private void CurrentTurnOfPlayer(NetworkConnection conn)
     {
-        Debug.Log(conn);
+        Debug.Log($"Turn of player: {conn}");
     }
 }

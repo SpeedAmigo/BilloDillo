@@ -649,6 +649,21 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 800512610}
   _networkObjectCache: {fileID: 0}
+--- !u!114 &800512623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800512608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71fd7f855ec523429999fc4e14a1928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _overrideType: 3
+  _updateHostVisibility: 1
+  _observerConditions: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1257,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBall
       objectReference: {fileID: 0}
+    - target: {fileID: 7510992985469459365, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
+      propertyPath: _sendToOwner
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510992985469459365, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1249,6 +1272,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7389543732823288411, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 800512616}
+    - targetCorrespondingSourceObject: {fileID: 7389543732823288411, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 800512623}
   m_SourcePrefab: {fileID: 100100000, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
 --- !u!1 &2050824290
 GameObject:
