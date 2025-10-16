@@ -1,6 +1,8 @@
 using System;
+using FishNet.CodeGenerating;
 using FishNet.Connection;
 using FishNet.Object;
+using FishNet.Object.Synchronizing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +10,9 @@ public class PlayerBallScript : NetworkBehaviour
 {
     private Rigidbody _body;
     private InputSystem_Actions _inputSystem;
+    
+    private bool _haveShot = false;
+    [AllowMutableSyncType] private SyncVar<bool> _isMoving = new();
     
     private void Awake()
     {
@@ -63,22 +68,46 @@ public class PlayerBallScript : NetworkBehaviour
     {
         if (IsOwner && context.performed)
         {
-            ShootBall();
-            GameplayManager.Instance.NextTurn(NetworkObject);
+            if (_haveShot) return;
+            
+            Vector3 mousePos = GetMousePosition();
+            Vector3 direction = mousePos - transform.position;
+            
+            ShootBall(direction);
+            
             Debug.Log("Client pressed space");
             OwnerTestRpcServer();
+            _haveShot = true;
         }
     }
 
     [ServerRpc(RequireOwnership = true)]
-    private void ShootBall()
+    private void ShootBall(Vector3 direction)
     {
-        Vector3 mousePos = GetMousePosition();
-        Vector3 direction = mousePos - transform.position;
-            
-        _body.AddForce(-direction.normalized * 500f);
+        _body.AddForce(-direction.normalized * 5f, ForceMode.Impulse);
+        
+        Invoke(nameof(MoveDelay), 0.5f);
     }
-    
+
+    [Server]
+    private void MoveDelay()
+    {
+        _isMoving.Value = true;
+    }
+
+    private void Update()
+    {
+        if (!IsOwner) return;
+        
+        if (_haveShot && _isMoving.Value && _body.linearVelocity.magnitude <= 0.01f)
+        {
+            GameplayManager.Instance.NextTurn(NetworkObject);
+            Debug.Log("Ball stopped, next turn");
+            _haveShot = false;
+            _isMoving.Value = false;
+        }
+    }
+
     private Vector3 GetMousePosition()
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
