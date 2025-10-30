@@ -11,7 +11,7 @@ public class GameplayManager : NetworkBehaviour
     [SerializeField] private int numberOfPlayers;
     
     private List<NetworkConnection> _playerConnections = new();
-    private int _currentPlayerIndex = 0;
+    public int _currentPlayerIndex = 0;
     
     private void Awake()
     {

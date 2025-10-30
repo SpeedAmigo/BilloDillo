@@ -73,7 +73,9 @@ public class PlayerBallScript : NetworkBehaviour
             Vector3 mousePos = GetMousePosition();
             Vector3 direction = mousePos - transform.position;
             
-            ShootBall(direction);
+            float force = direction.magnitude;
+            
+            ShootBall(direction, force);
             
             Debug.Log("Client pressed space");
             OwnerTestRpcServer();
@@ -82,9 +84,9 @@ public class PlayerBallScript : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = true)]
-    private void ShootBall(Vector3 direction)
+    private void ShootBall(Vector3 direction, float force)
     {
-        _body.AddForce(-direction.normalized * 5f, ForceMode.Impulse);
+        _body.AddForce(-direction.normalized * (force * 20), ForceMode.Impulse);
         
         Invoke(nameof(MoveDelay), 0.5f);
     }
@@ -108,11 +110,24 @@ public class PlayerBallScript : NetworkBehaviour
         }
     }
 
-    private Vector3 GetMousePosition()
+    /*private Vector3 GetMousePosition()
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
-        mousePos.z = 10f; // Distance from the camera
+        
         return Camera.main.ScreenToWorldPoint(mousePos);
+    }*/
+    
+    private Vector3 GetMousePosition()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero); 
+    
+        if (groundPlane.Raycast(ray, out float distance))
+        {
+            return ray.GetPoint(distance);
+        }
+
+        return Vector3.zero;
     }
 
     [ServerRpc(RequireOwnership = true)]
