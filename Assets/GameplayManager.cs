@@ -8,6 +8,7 @@ public class GameplayManager : NetworkBehaviour
     public static GameplayManager Instance;
 
     [SerializeField] private NetworkObject playerBall;
+    [SerializeField] private NetworkObject pointer;
     [SerializeField] private int numberOfPlayers;
     
     private List<NetworkConnection> _playerConnections = new();
@@ -34,28 +35,31 @@ public class GameplayManager : NetworkBehaviour
         }
         
         numberOfPlayers = _playerConnections.Count;
-        ShowObserverDebug(numberOfPlayers);
+        //ShowObserverDebug(numberOfPlayers);
         
         if (_playerConnections.Count == 1)
         {
             //playerBall.AssignOwnership(_playerConnections[0]);
             playerBall.GiveOwnership(_playerConnections[0]);
-            CurrentTurnOfPlayer(_playerConnections[0]);
+            pointer.GiveOwnership(_playerConnections[0]);
+            //CurrentTurnOfPlayer(_playerConnections[0]);
         }
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void NextTurn(NetworkObject playerBall)
+    public void NextTurn()
     {
+        Debug.Log("NextTurn");
+        
         if (_playerConnections.Count == 0) return;
         
         _currentPlayerIndex = (_currentPlayerIndex + 1)% _playerConnections.Count;
-        //playerBall.AssignOwnership(_playerConnections[_currentPlayerIndex]);
         playerBall.GiveOwnership(_playerConnections[_currentPlayerIndex]);
-        CurrentTurnOfPlayer(_playerConnections[_currentPlayerIndex]);
+        pointer.GiveOwnership(_playerConnections[_currentPlayerIndex]);
+        //CurrentTurnOfPlayer(_playerConnections[_currentPlayerIndex]);
     }
 
-    [ObserversRpc]
+    /*[ObserversRpc]
     private void ShowObserverDebug(int numberOfPlayers)
     {
         Debug.Log(numberOfPlayers);
@@ -66,5 +70,5 @@ public class GameplayManager : NetworkBehaviour
     private void CurrentTurnOfPlayer(NetworkConnection conn)
     {
         Debug.Log($"Turn of player: {conn}");
-    }
+    }*/
 }
