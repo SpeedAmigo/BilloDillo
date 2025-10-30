@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerBallScript : NetworkBehaviour
 {
+    [SerializeField] private GameObject pointer;
+    
     private Rigidbody _body;
     private InputSystem_Actions _inputSystem;
     
@@ -48,10 +50,12 @@ public class PlayerBallScript : NetworkBehaviour
         {
             _inputSystem.Enable();
             _inputSystem.Player.Jump.performed += OnSpacePressed;
+            pointer.SetActive(true);
         }
         else
         {
             _inputSystem.Disable();
+            pointer.SetActive(false);
         }
     }
     
@@ -100,6 +104,16 @@ public class PlayerBallScript : NetworkBehaviour
     private void Update()
     {
         if (!IsOwner) return;
+        
+        Vector3 mousePos = GetMousePosition();
+        Vector3 direction = mousePos - pointer.transform.position;
+
+        direction.y = 0f;
+
+        if (direction != Vector3.zero)
+        {
+            pointer.transform.rotation = Quaternion.LookRotation(direction);
+        }
         
         if (_haveShot && _isMoving.Value && _body.linearVelocity.magnitude <= 0.01f)
         {
