@@ -10,6 +10,8 @@ public class BallHoleScript : NetworkBehaviour
         {
             var netObj = gameBall.GetComponent<NetworkObject>();
             
+            GameplayManager.Instance.AddPlayerBall(gameBall.ballType);
+            
             Despawn(netObj);
         }
     }

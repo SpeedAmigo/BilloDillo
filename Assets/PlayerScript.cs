@@ -1,11 +1,13 @@
+using FishNet.CodeGenerating;
 using FishNet.Connection;
 using FishNet.Object;
 using FishNet.Object.Synchronizing;
-using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerScript : NetworkBehaviour
 {
+    [AllowMutableSyncType] public SyncVar<BallType> ballType;
+    [AllowMutableSyncType] public SyncVar<int> collectedBalls;
+    
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -13,19 +15,19 @@ public class PlayerScript : NetworkBehaviour
         {
             RegisterConnection(Owner);
         }
-        
     }
 
     [ServerRpc(RequireOwnership = false)]
     private void RegisterConnection(NetworkConnection conn)
     {
-        GameplayManager.Instance.AddPlayerConnection(conn);
-        //PlayerId(conn);
+        GameplayManager.Instance.AddPlayerConnection(conn, this);
     }
+}
 
-    /*[ObserversRpc(RunLocally = true)]
-    private void PlayerId(NetworkConnection conn)
-    {
-        Debug.Log($"player id {conn}");
-    }*/
+public enum BallType
+{
+    None,
+    Half,
+    Full,
+    Black
 }

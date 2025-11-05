@@ -86,7 +86,6 @@ public class PlayerBallScript : NetworkBehaviour
     {
         _body.AddForce(-direction.normalized * (force * 20), ForceMode.Impulse);
         
-        //Invoke(nameof(MoveDelay), 0.5f);
         StartCoroutine(MoveDelayCoroutine());
     }
 
