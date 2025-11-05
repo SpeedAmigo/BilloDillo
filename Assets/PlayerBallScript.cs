@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using FishNet.CodeGenerating;
 using FishNet.Connection;
 using FishNet.Object;
@@ -85,22 +86,23 @@ public class PlayerBallScript : NetworkBehaviour
     {
         _body.AddForce(-direction.normalized * (force * 20), ForceMode.Impulse);
         
-        Invoke(nameof(MoveDelay), 0.5f);
+        //Invoke(nameof(MoveDelay), 0.5f);
+        StartCoroutine(MoveDelayCoroutine());
+    }
+
+    [Server]
+    private IEnumerator MoveDelayCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        MoveDelay();
     }
 
     [Server]
     private void MoveDelay()
     {
         _isMoving.Value = true;
-        IsMovingObserverTest();
     }
-
-    [ObserversRpc(RunLocally = true)]
-    private void IsMovingObserverTest()
-    {
-        Debug.Log("Move Delay and value" + _isMoving.Value);
-    }
-
+    
     [ServerRpc(RequireOwnership = true)]
     private void SetIsMoving(bool value)
     {
@@ -111,11 +113,13 @@ public class PlayerBallScript : NetworkBehaviour
     {
         if (!IsOwner) return;
         
-        if (_haveShot && _isMoving.Value && _body.linearVelocity.magnitude <= 0.01f)
+        Debug.Log($"{_haveShot} - true, {_isMoving.Value} - true, {_body.IsSleeping()} - true");
+        
+        if (_haveShot && _isMoving.Value && _body.IsSleeping())
         {
-            GameplayManager.Instance.NextTurn();
             _haveShot = false;
             SetIsMoving(false);
+            GameplayManager.Instance.NextTurn();
         }
     }
 }

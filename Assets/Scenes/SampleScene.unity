@@ -874,7 +874,6 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 800512610}
   _networkObjectCache: {fileID: 0}
-  pointer: {fileID: 724935781}
   _isMoving:
     NetworkManager: {fileID: 0}
     NetworkBehaviour: {fileID: 0}
@@ -1910,6 +1909,10 @@ PrefabInstance:
     - target: {fileID: 926582414757916745, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
       propertyPath: m_Mass
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 926582414757916745, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
+      propertyPath: m_AngularDrag
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 926582414757916745, guid: eb6eaae873ab87c47bd1a48f2eb5a6a0, type: 3}
       propertyPath: m_Constraints
