@@ -1,5 +1,4 @@
 using FishNet.Object;
-using UnityEngine;
 
 public class GameBallsParentScript : NetworkBehaviour
 {
@@ -7,6 +6,11 @@ public class GameBallsParentScript : NetworkBehaviour
     {
         base.OnStartServer();
         
+        //UnParentChild();
+    }
+
+    private void Awake()
+    {
         UnParentChild();
     }
 
@@ -17,10 +21,10 @@ public class GameBallsParentScript : NetworkBehaviour
         {
             var child = transform.GetChild(i);
             
-            child.SetParent(null);
+            child.SetParent(null, true);
         }
         
-        UnparentChild_Client();
+        //UnparentChild_Client();
     }
 
     [ObserversRpc(BufferLast = true)]
@@ -30,7 +34,7 @@ public class GameBallsParentScript : NetworkBehaviour
         {
             var child = transform.GetChild(i);
             
-            child.SetParent(null);
+            child.SetParent(null, true);
         }
     }
 }
