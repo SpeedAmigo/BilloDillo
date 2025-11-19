@@ -7,6 +7,7 @@ public class PlayerScript : NetworkBehaviour
 {
     [AllowMutableSyncType] public SyncVar<BallType> ballType;
     [AllowMutableSyncType] public SyncVar<int> collectedBalls;
+    [AllowMutableSyncType] public SyncVar<bool> canShootBlackBall;
     
     public override void OnStartClient()
     {

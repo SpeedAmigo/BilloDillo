@@ -15,6 +15,8 @@ public class GameplayManager : NetworkBehaviour
     public int _currentPlayerIndex = 0;
     
     public List<PlayerScript> players = new();
+
+    public List<Rigidbody> gameBalls = new();
     
     private void Awake()
     {
@@ -78,6 +80,46 @@ public class GameplayManager : NetworkBehaviour
             {
                 players[otherPlayerIndex].collectedBalls.Value++;
             }
+        }
+        
+        if (ballType == BallType.Black)
+        {
+            if (CheckIfPlayerCanShootBlack(current))
+            {
+                GameOver(true);
+            }
+            else
+            {
+                GameOver(false);
+            }
+        }
+    }
+
+    [Server]
+    private void GameOver(bool won)
+    {
+        if (won)
+        {
+            Debug.Log("You Won!"); 
+        }
+        else
+        {
+            Debug.Log("You Lost!");
+        }
+    }
+    
+    [Server]
+    private bool CheckIfPlayerCanShootBlack(PlayerScript player)
+    {
+        int maxBalls = 7;
+        
+        if (player.collectedBalls.Value < maxBalls)
+        {
+            return player.canShootBlackBall.Value = false;
+        }
+        else
+        {
+            return player.canShootBlackBall.Value = true;
         }
     }
     

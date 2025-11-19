@@ -112,7 +112,7 @@ public class PlayerBallScript : NetworkBehaviour
     {
         if (!IsOwner) return;
         
-        Debug.Log($"{_haveShot} - true, {_isMoving.Value} - true, {_body.IsSleeping()} - true");
+        //Debug.Log($"{_haveShot} - true, {_isMoving.Value} - true, {_body.IsSleeping()} - true");
         
         if (_haveShot && _isMoving.Value && _body.IsSleeping())
         {
