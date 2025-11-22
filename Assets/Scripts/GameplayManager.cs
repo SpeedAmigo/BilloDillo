@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using FishNet.Connection;
 using FishNet.Object;
 using UnityEngine;
 
 public class GameplayManager : NetworkBehaviour
-{ 
+{
+    public static event Action<bool> OnGameOver;
+    
     public static GameplayManager Instance;
 
     [SerializeField] private NetworkObject playerBall;
@@ -98,14 +101,22 @@ public class GameplayManager : NetworkBehaviour
     [Server]
     private void GameOver(bool won)
     {
-        if (won)
+        if (_playerConnections.Count == 0) return;
+        
+        int otherPlayerIndex = (_currentPlayerIndex == 0) ? 1 : 0;
+        NetworkConnection winnerConn = won ? _playerConnections[_currentPlayerIndex] : _playerConnections[otherPlayerIndex];
+
+        foreach (var conn in _playerConnections)
         {
-            Debug.Log("You Won!"); 
+            bool isWinner = (conn == winnerConn);
+            TargetShowGameOver(conn, isWinner);
         }
-        else
-        {
-            Debug.Log("You Lost!");
-        }
+    }
+
+    [TargetRpc]
+    private void TargetShowGameOver(NetworkConnection conn, bool won)
+    {
+        OnGameOver?.Invoke(won);
     }
     
     [Server]
