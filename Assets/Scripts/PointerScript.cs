@@ -6,10 +6,27 @@ using UnityEngine.InputSystem;
 public class PointerScript : NetworkBehaviour
 {
     [SerializeField] private NetworkObject playerBall;
-    
+    [SerializeField] private float forceMultiplier = 20;
     private void OnEnable()
     {
-       transform.position = playerBall.transform.position; 
+       transform.position = playerBall.transform.position;
+
+       ForceSliderScript.OnHandleRelease += PerformShoot;
+    }
+
+    private void OnDisable()
+    {
+        ForceSliderScript.OnHandleRelease -= PerformShoot;
+    }
+
+    private void PerformShoot(float force)
+    {
+        PlayerBallScript ball = playerBall.GetComponent<PlayerBallScript>();
+        
+        Vector3 direction = transform.forward;
+        float forceMagnitude = force * forceMultiplier;
+        
+        ball.ShootBall(direction, forceMagnitude);
     }
 
     public override void OnOwnershipClient(NetworkConnection prevOwner)
@@ -28,7 +45,9 @@ public class PointerScript : NetworkBehaviour
     private void Update()
     {
         if (!IsOwner) return;
-        
+
+        if (!Mouse.current.rightButton.isPressed) return;
+            
         Vector3 mousePos = MousePosition.GetMousePosition();
         Vector3 direction = mousePos - transform.position;
 
