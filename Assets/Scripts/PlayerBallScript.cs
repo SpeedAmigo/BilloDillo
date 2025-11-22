@@ -91,11 +91,11 @@ public class PlayerBallScript : NetworkBehaviour
             if (_haveShot) return;
             
             ShootBallServer(direction, force);
-            //_shootForce = 0;
+
             _haveShot = true;
         }
     }
-
+    
     [ServerRpc(RequireOwnership = true)]
     private void ShootBallServer(Vector3 direction, float force)
     {
