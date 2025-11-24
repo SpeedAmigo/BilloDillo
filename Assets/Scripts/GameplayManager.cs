@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameplayManager : NetworkBehaviour
 {
+    public static event Action<int, int> OnBallImage;
     public static event Action<bool> OnGameOver;
     
     public static GameplayManager Instance;
@@ -53,7 +54,7 @@ public class GameplayManager : NetworkBehaviour
     }
     
     [ServerRpc(RequireOwnership = false)]
-    public void AddPlayerBall(BallType ballType)
+    public void AddPlayerBall(GameBallScript ball)
     {
         if (players.Count < 2)
         {
@@ -68,24 +69,39 @@ public class GameplayManager : NetworkBehaviour
         
         if (current.ballType.Value == BallType.None && other.ballType.Value == BallType.None)
         {
-            current.ballType.Value = ballType;
+            current.ballType.Value = ball.ballType;
             current.collectedBalls.Value++;
             
-            other.ballType.Value = (ballType == BallType.Full) ? BallType.Half : BallType.Full;
+            other.ballType.Value = (ball.ballType == BallType.Full) ? BallType.Half : BallType.Full;
+
+            if (current.ballType.Value == ball.ballType)
+            {
+                AddBallImageObservers(ball.ballIndex, _currentPlayerIndex);
+                //OnBallImage?.Invoke(ball.ballImage, _currentPlayerIndex);
+            }
+            else
+            {
+                AddBallImageObservers(ball.ballIndex, otherPlayerIndex);
+                //OnBallImage?.Invoke(ball.ballImage, otherPlayerIndex);
+            }
         }
         else
         {
-            if (players[_currentPlayerIndex].ballType.Value == ballType)
+            if (players[_currentPlayerIndex].ballType.Value == ball.ballType)
             {
                 players[_currentPlayerIndex].collectedBalls.Value++;
+                AddBallImageObservers(ball.ballIndex, _currentPlayerIndex);
+                //OnBallImage?.Invoke(ball.ballImage, _currentPlayerIndex);
             }
             else
             {
                 players[otherPlayerIndex].collectedBalls.Value++;
+                AddBallImageObservers(ball.ballIndex, otherPlayerIndex);
+                //OnBallImage?.Invoke(ball.ballImage, otherPlayerIndex);
             }
         }
         
-        if (ballType == BallType.Black)
+        if (ball.ballType == BallType.Black)
         {
             if (CheckIfPlayerCanShootBlack(current))
             {
@@ -96,6 +112,12 @@ public class GameplayManager : NetworkBehaviour
                 GameOver(false);
             }
         }
+    }
+
+    [ObserversRpc(BufferLast = true)]
+    private void AddBallImageObservers(int ballIndex, int playerIndex)
+    {
+        OnBallImage?.Invoke(ballIndex, playerIndex);
     }
 
     [Server]
