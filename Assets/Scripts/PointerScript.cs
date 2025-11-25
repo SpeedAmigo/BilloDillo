@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PointerScript : NetworkBehaviour
 {
+    [SerializeField] private HandMovementScript handMovementScript;
     [SerializeField] private NetworkObject playerBall;
     [SerializeField] private float forceMultiplier = 20;
     private void OnEnable()
@@ -33,12 +34,16 @@ public class PointerScript : NetworkBehaviour
     {
         if (IsOwner)
         {
-            gameObject.SetActive(true);
+            enabled = true;
+            handMovementScript.enabled = true;
+            //gameObject.SetActive(true);
             transform.position = playerBall.transform.position;
         }
         else
         {
-            gameObject.SetActive(false);
+            enabled = false;
+            handMovementScript.enabled = false;
+            //gameObject.SetActive(false);
         }
     }
 

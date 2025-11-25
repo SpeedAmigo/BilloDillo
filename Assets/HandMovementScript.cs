@@ -9,7 +9,7 @@ public class HandMovementScript : NetworkBehaviour
     [SerializeField] private float moveBackMultiplier;
 
     private float _originalOffset;
-
+    
     private void Start()
     {
         _originalOffset = transform.localPosition.z;

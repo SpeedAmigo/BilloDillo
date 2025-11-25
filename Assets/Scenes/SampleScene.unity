@@ -5751,6 +5751,10 @@ PrefabInstance:
       propertyPath: forceMultiplier
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 4963227964267614257, guid: 380cf439d2c0e65499df08e3b96ce952, type: 3}
+      propertyPath: handMovementScript
+      value: 
+      objectReference: {fileID: 5103956108894156501}
     - target: {fileID: 7556427899124517964, guid: 380cf439d2c0e65499df08e3b96ce952, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.714377
