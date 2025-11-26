@@ -69,6 +69,12 @@ public class PlayerBallScript : NetworkBehaviour
     [ServerRpc(RequireOwnership = true)]
     private void ShootBallServer(Vector3 direction, float force)
     {
+        if (GameplayManager.Instance.players.Count < 2)
+        {
+            Debug.Log("Wait for other player to join!");
+            return;
+        }
+        
         _body.mass = defaultMass;
         _body.AddForce(-direction.normalized * (force), ForceMode.Impulse);
 
