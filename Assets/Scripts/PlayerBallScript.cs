@@ -95,7 +95,8 @@ public class PlayerBallScript : NetworkBehaviour
         {
             case PlayerBallLogicType.Hedgehog:
             {
-                playerBallLogic.HedgehogCollision(gameObject, collision.gameObject);
+                Vector3 hitPoint = collision.contacts[0].point;
+                playerBallLogic.HedgehogCollision(gameObject, collision.gameObject, hitPoint);
                 break;
             }
             case PlayerBallLogicType.Pufferfish:
