@@ -883,7 +883,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267704799}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2360,7 +2360,7 @@ GameObject:
   - component: {fileID: 621378645}
   - component: {fileID: 621378650}
   - component: {fileID: 621378649}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2374,7 +2374,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621378644}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2956,6 +2956,12 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 3374872568275214582}
   _networkObjectCache: {fileID: 0}
   playerBallLogic: {fileID: 11400000, guid: 0e073801f5a4eb84a89f98cf778204e1, type: 2}
+  defaultMass: 5
+  snailMass: 200
+  scaleUpBy: 0.2
+  explosionForce: 1.5
+  explosionRadius: 1.5
+  rabbitPhaseTime: 0.5
   _isMoving:
     NetworkManager: {fileID: 0}
     NetworkBehaviour: {fileID: 0}
@@ -3332,7 +3338,7 @@ GameObject:
   - component: {fileID: 891161444}
   - component: {fileID: 891161449}
   - component: {fileID: 891161448}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3346,7 +3352,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891161443}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5208,7 +5214,7 @@ GameObject:
   - component: {fileID: 1633053786}
   - component: {fileID: 1633053791}
   - component: {fileID: 1633053790}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5222,7 +5228,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633053785}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5759,7 +5765,7 @@ GameObject:
   - component: {fileID: 1883336798}
   - component: {fileID: 1883336803}
   - component: {fileID: 1883336802}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5773,7 +5779,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883336797}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5973,7 +5979,7 @@ GameObject:
   - component: {fileID: 1899806887}
   - component: {fileID: 1899806892}
   - component: {fileID: 1899806891}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5987,7 +5993,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899806886}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6150,7 +6156,7 @@ GameObject:
   - component: {fileID: 1982290258}
   - component: {fileID: 1982290263}
   - component: {fileID: 1982290262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6164,7 +6170,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982290257}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7113,7 +7119,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7389543734295032260}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7159,6 +7165,10 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 470756066314020440, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 643471720804470775, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Drag
       value: 2
@@ -7187,6 +7197,10 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1005912512729806009, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 1057901477976283052, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 2146426224
@@ -7259,6 +7273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBallsParent
       objectReference: {fileID: 0}
+    - target: {fileID: 2211892461930503407, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 2348983412627344297, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.47
@@ -7399,6 +7417,10 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 4226211164
       objectReference: {fileID: 0}
+    - target: {fileID: 4134375931210985738, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 4198961734758059519, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Drag
       value: 2
@@ -7431,6 +7453,10 @@ PrefabInstance:
       propertyPath: ballIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5436812576584098066, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 5628019459992116995, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7467,6 +7493,10 @@ PrefabInstance:
       propertyPath: ballImage
       value: 
       objectReference: {fileID: 21300000, guid: 84bb25f9f7796504589937aeeb4a96c1, type: 3}
+    - target: {fileID: 6566391264019084545, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 6621930460475448306, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Drag
       value: 2
@@ -7523,10 +7553,22 @@ PrefabInstance:
       propertyPath: ballIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7495339598061025952, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 7550473069183653345, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 937686913
       objectReference: {fileID: 0}
+    - target: {fileID: 7574777389492727474, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
+    - target: {fileID: 7592717836171889972, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 7919940412706271668, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7535,10 +7577,18 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 8055585483522731590, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 8235021825015102305, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a07243fb681dfb54baee645edcb55a1f, type: 2}
+    - target: {fileID: 8261532286976618358, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 8501780510757551909, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Drag
       value: 2
@@ -7555,6 +7605,10 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 4294114643
       objectReference: {fileID: 0}
+    - target: {fileID: 8516152589044526045, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 8531333457503491511, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 3019300848
@@ -7567,6 +7621,14 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 1006097870
       objectReference: {fileID: 0}
+    - target: {fileID: 8715079925970704970, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
+    - target: {fileID: 8780854614287945045, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
     - target: {fileID: 8974808982191644526, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: ballImage
       value: 
@@ -7700,7 +7762,7 @@ GameObject:
   - component: {fileID: 5435690566794178707}
   - component: {fileID: 8989369918197235510}
   - component: {fileID: 6567478721663110140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: F_Table_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7914,9 +7976,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4642061764035204024}
   - component: {fileID: 5413390768520661251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: F_Collider_01
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7928,7 +7990,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5413390768520661250}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

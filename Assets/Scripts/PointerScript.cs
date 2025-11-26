@@ -22,6 +22,12 @@ public class PointerScript : NetworkBehaviour
 
     private void PerformShoot(float force)
     {
+        if (GameplayManager.Instance.players.Count < 2)
+        {
+            Debug.Log("Wait for other player to join!");
+            return;
+        }
+        
         PlayerBallScript ball = playerBall.GetComponent<PlayerBallScript>();
         
         Vector3 direction = transform.forward;
@@ -36,14 +42,12 @@ public class PointerScript : NetworkBehaviour
         {
             enabled = true;
             handMovementScript.enabled = true;
-            //gameObject.SetActive(true);
             transform.position = playerBall.transform.position;
         }
         else
         {
             enabled = false;
             handMovementScript.enabled = false;
-            //gameObject.SetActive(false);
         }
     }
 
