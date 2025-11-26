@@ -91,6 +91,18 @@ public class PlayerBallScript : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
+        switch (playerBallLogic.ballType)
+        {
+            case PlayerBallLogicType.Hedgehog:
+            {
+                playerBallLogic.HedgehogCollision(gameObject, collision.gameObject);
+                break;
+            }
+            case PlayerBallLogicType.Pufferfish:
+            {
+                playerBallLogic.PufferfishCollision(gameObject);
+                break;
+            }
+        }
     }
 }

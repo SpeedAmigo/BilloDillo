@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177eb41b8d4441c41a978a334e80052d, type: 3}
   m_Name: Rabbit
   m_EditorClassIdentifier: 
+  ballType: 3
   speed: 5
   mass: 5
   linearDamping: 2
   angularDamping: 2
+  scaleUpBy: 0
