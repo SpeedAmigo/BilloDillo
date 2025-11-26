@@ -289,6 +289,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1676756233}
+        m_TargetAssemblyTypeName: BallPickerScript, Assembly-CSharp
+        m_MethodName: ChangeLogic
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 880c49cf1a72aae4e8a25d1d6163a810, type: 2}
+          m_ObjectArgumentAssemblyTypeName: PlayerBallLogic, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &117689606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,6 +429,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1676756233}
+        m_TargetAssemblyTypeName: BallPickerScript, Assembly-CSharp
+        m_MethodName: ChangeLogic
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 0e073801f5a4eb84a89f98cf778204e1, type: 2}
+          m_ObjectArgumentAssemblyTypeName: PlayerBallLogic, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1474,6 +1498,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1676756233}
+        m_TargetAssemblyTypeName: BallPickerScript, Assembly-CSharp
+        m_MethodName: ChangeLogic
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7ad2c2eb453210c4491c8da79b715379, type: 2}
+          m_ObjectArgumentAssemblyTypeName: PlayerBallLogic, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &399431981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,6 +1760,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1676756233}
+        m_TargetAssemblyTypeName: BallPickerScript, Assembly-CSharp
+        m_MethodName: ChangeLogic
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 3ec598dea992f8942b1304be2dcf41d5, type: 2}
+          m_ObjectArgumentAssemblyTypeName: PlayerBallLogic, Assembly-CSharp
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2645,6 +2693,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1676756233}
+        m_TargetAssemblyTypeName: BallPickerScript, Assembly-CSharp
+        m_MethodName: ChangeLogic
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7e403f3291e68a84ba14ba102d30d6ab, type: 2}
+          m_ObjectArgumentAssemblyTypeName: PlayerBallLogic, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &658305253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2895,6 +2955,7 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 3374872568275214582}
   _networkObjectCache: {fileID: 0}
+  playerBallLogic: {fileID: 11400000, guid: 0e073801f5a4eb84a89f98cf778204e1, type: 2}
   _isMoving:
     NetworkManager: {fileID: 0}
     NetworkBehaviour: {fileID: 0}
@@ -3976,6 +4037,7 @@ MonoBehaviour:
   _networkObjectCache: {fileID: 0}
   playerBall: {fileID: 3374872568275214582}
   pointer: {fileID: 724935783}
+  ballPicker: {fileID: 1676756232}
   numberOfPlayers: 0
   _currentPlayerIndex: 0
   players: []
@@ -5544,6 +5606,7 @@ MonoBehaviour:
   - {fileID: 919132148950243276}
   - {fileID: 919132148039289814}
   - {fileID: 919132149564747988}
+  playerBall: {fileID: 800512616}
 --- !u!1 &1768544361
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class GameplayManager : NetworkBehaviour
 
     [SerializeField] private NetworkObject playerBall;
     [SerializeField] private NetworkObject pointer;
+    [SerializeField] private NetworkObject ballPicker;
     [SerializeField] private int numberOfPlayers;
     
     private List<NetworkConnection> _playerConnections = new();
@@ -50,6 +51,7 @@ public class GameplayManager : NetworkBehaviour
         {
             playerBall.GiveOwnership(_playerConnections[0]);
             pointer.GiveOwnership(_playerConnections[0]);
+            ballPicker.GiveOwnership(_playerConnections[0]);
         }
     }
     
@@ -166,5 +168,6 @@ public class GameplayManager : NetworkBehaviour
         _currentPlayerIndex = (_currentPlayerIndex + 1)% _playerConnections.Count;
         playerBall.GiveOwnership(_playerConnections[_currentPlayerIndex]);
         pointer.GiveOwnership(_playerConnections[_currentPlayerIndex]);
+        ballPicker.GiveOwnership(_playerConnections[_currentPlayerIndex]);
     }
 }
