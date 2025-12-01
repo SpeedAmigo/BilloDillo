@@ -658,17 +658,17 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 267704802}
   _networkObjectCache: {fileID: 267704802}
-  _componentConfiguration: 0
+  _componentConfiguration: 2
   _synchronizeParent: 0
   _packing:
     Position: 1
     Rotation: 1
     Scale: 0
-  _interpolation: 5
+  _interpolation: 7
   _extrapolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  _clientAuthoritative: 1
+  _clientAuthoritative: 0
   _sendToOwner: 1
   _interval: 1
   _synchronizePosition: 1
@@ -7394,10 +7394,46 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 341348933749219716, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 341348933749219716, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341348933749219716, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 354895197793013968, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 354895197793013968, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 354895197793013968, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 470756066314020440, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
+    - target: {fileID: 582480713144283873, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 582480713144283873, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582480713144283873, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 643471720804470775, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Drag
       value: 2
@@ -7417,6 +7453,18 @@ PrefabInstance:
     - target: {fileID: 644203476345056355, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: ballPoints
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 681290861449316232, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 681290861449316232, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681290861449316232, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 741069955280933280, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Drag
@@ -7517,6 +7565,18 @@ PrefabInstance:
     - target: {fileID: 2019905581369059997, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Name
       value: GameBallsParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080267103746124888, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080267103746124888, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080267103746124888, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2211892461930503407, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Material
@@ -7658,6 +7718,30 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 2080309174
       objectReference: {fileID: 0}
+    - target: {fileID: 3536481684231409435, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536481684231409435, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536481684231409435, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600838062145270213, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600838062145270213, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600838062145270213, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3760745443456591356, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: ballImage
       value: 
@@ -7705,6 +7789,18 @@ PrefabInstance:
     - target: {fileID: 4807375376849606163, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: ballPoints
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865364321684005404, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865364321684005404, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865364321684005404, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5019409364238534288, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: ballImage
@@ -7794,6 +7890,18 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6703150484882872784, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703150484882872784, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703150484882872784, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6776223126557181770, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: m_Drag
       value: 2
@@ -7810,6 +7918,18 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 3086475258
       objectReference: {fileID: 0}
+    - target: {fileID: 6917105016116564664, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917105016116564664, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917105016116564664, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7118590683170873929, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7817,6 +7937,18 @@ PrefabInstance:
     - target: {fileID: 7206494400154611073, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 4293123857
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359975676725844566, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359975676725844566, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359975676725844566, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7421375033276907343, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: ballImage
@@ -7846,6 +7978,30 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 6c7fe8e9610815d48af1ba86c3898d35, type: 2}
+    - target: {fileID: 7745901460420469237, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745901460420469237, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745901460420469237, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836523156385167692, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836523156385167692, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836523156385167692, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7919940412706271668, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7925,6 +8081,18 @@ PrefabInstance:
     - target: {fileID: 9020052536072024574, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: <SceneId>k__BackingField
       value: 2146107238
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075993587303784367, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _interpolation
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075993587303784367, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _clientAuthoritative
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075993587303784367, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
+      propertyPath: _componentConfiguration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9158471995989012069, guid: ff51da2a883b3e74eb53f8650fc215d6, type: 3}
       propertyPath: <SceneId>k__BackingField
