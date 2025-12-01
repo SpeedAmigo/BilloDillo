@@ -10,7 +10,7 @@ public class GameplayManager : NetworkBehaviour
     public static event Action<bool> OnGameOver;
     
     public static GameplayManager Instance;
-
+    
     [SerializeField] private NetworkObject playerBall;
     [SerializeField] private NetworkObject pointer;
     [SerializeField] private NetworkObject ballPicker;
@@ -20,8 +20,6 @@ public class GameplayManager : NetworkBehaviour
     public int _currentPlayerIndex = 0;
     
     public List<PlayerScript> players = new();
-
-    public List<Rigidbody> gameBalls = new();
     
     private void Awake()
     {
@@ -79,12 +77,10 @@ public class GameplayManager : NetworkBehaviour
             if (current.ballType.Value == ball.ballType)
             {
                 AddBallImageObservers(ball.ballIndex, _currentPlayerIndex);
-                //OnBallImage?.Invoke(ball.ballImage, _currentPlayerIndex);
             }
             else
             {
                 AddBallImageObservers(ball.ballIndex, otherPlayerIndex);
-                //OnBallImage?.Invoke(ball.ballImage, otherPlayerIndex);
             }
         }
         else
@@ -93,13 +89,11 @@ public class GameplayManager : NetworkBehaviour
             {
                 players[_currentPlayerIndex].collectedBalls.Value++;
                 AddBallImageObservers(ball.ballIndex, _currentPlayerIndex);
-                //OnBallImage?.Invoke(ball.ballImage, _currentPlayerIndex);
             }
             else
             {
                 players[otherPlayerIndex].collectedBalls.Value++;
                 AddBallImageObservers(ball.ballIndex, otherPlayerIndex);
-                //OnBallImage?.Invoke(ball.ballImage, otherPlayerIndex);
             }
         }
         

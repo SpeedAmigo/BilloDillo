@@ -49,11 +49,34 @@ public class PointerScript : NetworkBehaviour
     {
         if (!IsOwner) return;
 
-        if (!Mouse.current.rightButton.isPressed) return;
-            
-        Vector3 mousePos = MousePosition.GetMousePosition();
-        Vector3 direction = mousePos - transform.position;
+        bool mouseAvailable = Mouse.current != null && Mouse.current.rightButton != null;
+        bool touchAvailable = Touchscreen.current != null && Touchscreen.current.primaryTouch != null;
+        
+        bool mousePressed = mouseAvailable && Mouse.current.rightButton.isPressed;
+        bool touchPressed = touchAvailable && Touchscreen.current.primaryTouch.isInProgress;
 
+        if (!mousePressed && !touchPressed) return;
+        
+        Vector3 inputWorldPos;
+
+        if (mousePressed)
+        {
+            inputWorldPos = MousePosition.GetMousePosition();
+        }
+        else
+        {
+            // Convert touch screen position to world position
+            Vector2 touchPos = Touchscreen.current.primaryTouch.position.ReadValue();
+            Camera cam = Camera.main;
+            if (cam == null) return;
+
+            // Use the pointer's current depth to compute a reasonable world Z
+            float z = cam.WorldToScreenPoint(transform.position).z;
+            Vector3 screenPos = new Vector3(touchPos.x, touchPos.y, z);
+            inputWorldPos = cam.ScreenToWorldPoint(screenPos);
+        }
+        
+        Vector3 direction = inputWorldPos - transform.position;
         direction.y = 0f;
 
         if (direction != Vector3.zero)

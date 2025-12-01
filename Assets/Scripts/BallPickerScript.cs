@@ -19,17 +19,17 @@ public class BallPickerScript : NetworkBehaviour
             enabled = true;
         }
     }
-
+    
     public void ChangeVisual(int index)
     {
         ChangeVisualServer(index);
     }
-
+    
     public void ChangeLogic(PlayerBallLogic playerBallLogic)
     {
         ChangeLogicServer(playerBallLogic);
     }
-
+    
     [ServerRpc(RequireOwnership = true)]
     private void ChangeVisualServer(int index)
     {
@@ -40,7 +40,7 @@ public class BallPickerScript : NetworkBehaviour
         
         ChangeVisualClient(index);
     }
-
+    
     [ServerRpc(RequireOwnership = true)]
     private void ChangeLogicServer(PlayerBallLogic playerBallLogic)
     {
@@ -48,7 +48,7 @@ public class BallPickerScript : NetworkBehaviour
         
         ChangeLogicClient(playerBallLogic);
     }
-
+    
     [ObserversRpc(BufferLast = true)]
     private void ChangeVisualClient(int index)
     {

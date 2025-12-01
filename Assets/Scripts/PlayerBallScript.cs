@@ -22,6 +22,9 @@ public class PlayerBallScript : NetworkBehaviour
     [Header("Rabbit Settings")]
     [SerializeField] private float rabbitPhaseTime = 3f;
     
+    [Header("Pufferfish Settings")]
+    [SerializeField] private float pufferfishPhaseTime = 3f;
+    
     [AllowMutableSyncType] private SyncVar<bool> _isMoving = new();
 
     private Rigidbody _body;
@@ -90,6 +93,11 @@ public class PlayerBallScript : NetworkBehaviour
                 _body.mass = snailMass;
                 break;
             }
+            case PlayerBallLogicType.Pufferfish:
+            {
+                StartCoroutine(PufferfishPhaseCoroutine());
+                break;
+            }
         }
         
         StartCoroutine(MoveDelayCoroutine());
@@ -138,10 +146,35 @@ public class PlayerBallScript : NetworkBehaviour
     private IEnumerator RabbitPhaseCoroutine()
     {
         gameObject.layer = _ghostLayer; // phase through everything except walls
+        
+        SetLayerObservers(_ghostLayer);
 
         yield return new WaitForSeconds(rabbitPhaseTime);
 
         gameObject.layer = _defaultLayer; // restore normal collisions
+        
+        SetLayerObservers(_defaultLayer);
+    }
+    
+    [ObserversRpc(BufferLast = false)]
+    private void SetLayerObservers(int layer)
+    {
+        gameObject.layer = layer;
+    }
+
+    private IEnumerator PufferfishPhaseCoroutine()
+    {
+        yield return new WaitForSeconds(pufferfishPhaseTime);
+        
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        
+        ChangePufferfishScale();
+    }
+
+    [ObserversRpc(BufferLast = false)]
+    private void ChangePufferfishScale()
+    {
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
     
     private void PufferfishCollision() 
