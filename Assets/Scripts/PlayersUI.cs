@@ -1,4 +1,5 @@
 using FishNet.Object;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,31 +8,34 @@ public class PlayersUI : NetworkBehaviour
     [SerializeField] private Image[] playerOneBills;
     [SerializeField] private Image[] playerTwoBills;
     
+    [SerializeField] private TMP_Text playerOnePoints;
+    [SerializeField] private TMP_Text playerTwoPoints;
+    
     [SerializeField] private Sprite[] ballSprites;
     
-
     private void OnEnable()
     {
         GameplayManager.OnBallImage += AddBallImage;
+        GameplayManager.OnPointsUpdate += UpdatePlayerPoints;
     }
 
     private void OnDisable()
     {
         GameplayManager.OnBallImage -= AddBallImage;
+        GameplayManager.OnPointsUpdate -= UpdatePlayerPoints;
     }
 
-    /*[Server]
-    private void AddBallImageServer(Sprite sprite, int index)
+    private void UpdatePlayerPoints(int value, int playerIndex)
     {
-        AddBallImageLogic(sprite, index);
-        AddBallImageClient(sprite, index);
+        if (playerIndex == 0)
+        {
+            playerOnePoints.text = value.ToString();
+        }
+        else if (playerIndex == 1)
+        {
+            playerTwoPoints.text = value.ToString();
+        }
     }
-
-    [ObserversRpc(BufferLast = true)]
-    private void AddBallImageClient(Sprite sprite, int index)
-    {
-        AddBallImageLogic(sprite, index);
-    }*/
     
     private void AddBallImage(int spriteIndex, int index)
     {

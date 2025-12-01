@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: Snail
   m_EditorClassIdentifier: 
   ballType: 4
-  speed: 2
-  mass: 5
-  linearDamping: 2
-  angularDamping: 2
-  scaleUpBy: 0
+  price: 30
+  index: 4

@@ -5,26 +5,12 @@ public class PlayerBallLogic : ScriptableObject
 {
     [Header("General Settings")]
     public PlayerBallLogicType ballType;
-    
-    public void HedgehogCollision(GameObject thisObject, GameObject otherObject, Vector3 hitPoint)
-    {
-        if (ballType != PlayerBallLogicType.Hedgehog) return;
-        
-        if (thisObject.transform.childCount >= 6) return;
-        
-        var rb = otherObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;
-        }
-        
-        otherObject.transform.SetParent(thisObject.transform);
-        
-        Vector3 localOffset = thisObject.transform.InverseTransformPoint(hitPoint);
-        otherObject.transform.localPosition = localOffset + new Vector3(0.2f, 0, 0);
-    }
+
+    [Header("Price Settings")]
+    public int price;
+
+    [Header("Index Settings")]
+    public int index;
 }
 
 public enum PlayerBallLogicType

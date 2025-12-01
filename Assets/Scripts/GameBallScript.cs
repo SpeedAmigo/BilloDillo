@@ -5,4 +5,5 @@ public class GameBallScript : NetworkBehaviour
 {
     public BallType ballType;
     public int ballIndex;
+    public int ballPoints;
 }

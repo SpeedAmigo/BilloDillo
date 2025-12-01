@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using FishNet.Connection;
 using FishNet.Object;
@@ -8,6 +9,7 @@ public class GameplayManager : NetworkBehaviour
 {
     public static event Action<int, int> OnBallImage;
     public static event Action<bool> OnGameOver;
+    public static event Action<int, int> OnPointsUpdate;
     
     public static GameplayManager Instance;
     
@@ -20,6 +22,8 @@ public class GameplayManager : NetworkBehaviour
     public int _currentPlayerIndex = 0;
     
     public List<PlayerScript> players = new();
+
+    public PlayerScript currentPlayer;
     
     private void Awake()
     {
@@ -47,6 +51,10 @@ public class GameplayManager : NetworkBehaviour
         
         if (_playerConnections.Count == 1)
         {
+            _currentPlayerIndex = 0;
+            if (players.Count > 0)
+                currentPlayer = players[0];
+            
             playerBall.GiveOwnership(_playerConnections[0]);
             pointer.GiveOwnership(_playerConnections[0]);
             ballPicker.GiveOwnership(_playerConnections[0]);
@@ -71,6 +79,8 @@ public class GameplayManager : NetworkBehaviour
         {
             current.ballType.Value = ball.ballType;
             current.collectedBalls.Value++;
+            current.points.Value += ball.ballPoints;
+            UpdatePlayerPointsObservers(current.points.Value, _currentPlayerIndex);
             
             other.ballType.Value = (ball.ballType == BallType.Full) ? BallType.Half : BallType.Full;
 
@@ -88,11 +98,15 @@ public class GameplayManager : NetworkBehaviour
             if (players[_currentPlayerIndex].ballType.Value == ball.ballType)
             {
                 players[_currentPlayerIndex].collectedBalls.Value++;
+                players[_currentPlayerIndex].points.Value += ball.ballPoints;
+                UpdatePlayerPointsObservers(players[_currentPlayerIndex].points.Value, _currentPlayerIndex);
                 AddBallImageObservers(ball.ballIndex, _currentPlayerIndex);
             }
             else
             {
                 players[otherPlayerIndex].collectedBalls.Value++;
+                players[otherPlayerIndex].points.Value += ball.ballPoints;
+                UpdatePlayerPointsObservers(players[otherPlayerIndex].points.Value, otherPlayerIndex);
                 AddBallImageObservers(ball.ballIndex, otherPlayerIndex);
             }
         }
@@ -110,10 +124,24 @@ public class GameplayManager : NetworkBehaviour
         }
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void PlayerPayCost(int price)
+    {
+        currentPlayer.points.Value -= price;
+        UpdatePlayerPointsObservers(currentPlayer.points.Value, _currentPlayerIndex);
+        Debug.Log("cost payed");
+    }
+    
     [ObserversRpc(BufferLast = true)]
     private void AddBallImageObservers(int ballIndex, int playerIndex)
     {
         OnBallImage?.Invoke(ballIndex, playerIndex);
+    }
+
+    [ObserversRpc(BufferLast = true)]
+    private void UpdatePlayerPointsObservers(int value, int playerIndex)
+    {
+        OnPointsUpdate?.Invoke(value, playerIndex);
     }
 
     [Server]
@@ -163,5 +191,8 @@ public class GameplayManager : NetworkBehaviour
         playerBall.GiveOwnership(_playerConnections[_currentPlayerIndex]);
         pointer.GiveOwnership(_playerConnections[_currentPlayerIndex]);
         ballPicker.GiveOwnership(_playerConnections[_currentPlayerIndex]);
+        
+        if (players.Count > _currentPlayerIndex)
+            currentPlayer = players[_currentPlayerIndex];
     }
 }

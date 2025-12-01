@@ -78,7 +78,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 7
+  <PrefabId>k__BackingField: 0
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 4003562906077371165
   <SceneId>k__BackingField: 0
@@ -117,3 +117,19 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: -151678067239470480}
   _networkObjectCache: {fileID: -151678067239470480}
+  ballType:
+    NetworkManager: {fileID: 0}
+    NetworkBehaviour: {fileID: 0}
+    _value: 0
+  collectedBalls:
+    NetworkManager: {fileID: 0}
+    NetworkBehaviour: {fileID: 0}
+    _value: 0
+  canShootBlackBall:
+    NetworkManager: {fileID: 0}
+    NetworkBehaviour: {fileID: 0}
+    _value: 0
+  points:
+    NetworkManager: {fileID: 0}
+    NetworkBehaviour: {fileID: 0}
+    _value: 100

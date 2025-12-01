@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: Pufferfish
   m_EditorClassIdentifier: 
   ballType: 2
-  speed: 5
-  mass: 5
-  linearDamping: 2
-  angularDamping: 2
-  scaleUpBy: 0.2
+  price: 30
+  index: 2

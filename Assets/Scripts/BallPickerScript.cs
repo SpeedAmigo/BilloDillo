@@ -19,18 +19,29 @@ public class BallPickerScript : NetworkBehaviour
             enabled = true;
         }
     }
-    
-    public void ChangeVisual(int index)
+
+    public void ChangeBall(PlayerBallLogic playerBallLogic)
     {
-        ChangeVisualServer(index);
+        ChangeBallServer(playerBallLogic);
     }
-    
-    public void ChangeLogic(PlayerBallLogic playerBallLogic)
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ChangeBallServer(PlayerBallLogic playerBallLogic)
     {
+        if (GameplayManager.Instance.currentPlayer.points.Value < playerBallLogic.price)
+        {
+            Debug.Log("Not enough points");
+            return;
+        }
+        
+        //GameplayManager.Instance.currentPlayer.PayPrice(playerBallLogic.price);
+        GameplayManager.Instance.PlayerPayCost(playerBallLogic.price);
+        
+        ChangeVisualServer(playerBallLogic.index);
         ChangeLogicServer(playerBallLogic);
     }
     
-    [ServerRpc(RequireOwnership = true)]
+    [ServerRpc(RequireOwnership = false)]
     private void ChangeVisualServer(int index)
     {
         for (int i = 0; i < ballVisuals.Length; i++)
@@ -41,7 +52,7 @@ public class BallPickerScript : NetworkBehaviour
         ChangeVisualClient(index);
     }
     
-    [ServerRpc(RequireOwnership = true)]
+    [ServerRpc(RequireOwnership = false)]
     private void ChangeLogicServer(PlayerBallLogic playerBallLogic)
     {
         playerBall.playerBallLogic = playerBallLogic;

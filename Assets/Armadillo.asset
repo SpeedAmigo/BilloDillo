@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177eb41b8d4441c41a978a334e80052d, type: 3}
   m_Name: Armadillo
   m_EditorClassIdentifier: 
-  speed: 5
-  mass: 5
-  linearDamping: 2
-  angularDamping: 2
+  ballType: 0
+  price: 20
+  index: 0

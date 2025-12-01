@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: Hedgehog
   m_EditorClassIdentifier: 
   ballType: 1
-  speed: 4
-  mass: 5
-  linearDamping: 2
-  angularDamping: 2
-  scaleUpBy: 0
+  price: 100
+  index: 1
