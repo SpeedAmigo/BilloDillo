@@ -5,9 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PointerScript : NetworkBehaviour
 {
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private GameObject raycastOrigin;
     [SerializeField] private HandMovementScript handMovementScript;
     [SerializeField] private NetworkObject playerBall;
     [SerializeField] private float forceMultiplier = 20;
+    
     private void OnEnable()
     {
        transform.position = playerBall.transform.position;
@@ -42,6 +45,26 @@ public class PointerScript : NetworkBehaviour
         {
             enabled = false;
             handMovementScript.enabled = false;
+            lineRenderer.enabled = false;
+        }
+    }
+
+    private void FireRuntimeRaycast()
+    {
+        if (raycastOrigin == null) return;
+        
+        Ray ray = new Ray(raycastOrigin.transform.position, raycastOrigin.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(0, ray.origin);
+            lineRenderer.SetPosition(1, hit.point);
+        }
+        else
+        {
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(0, ray.origin);
+            lineRenderer.SetPosition(1, ray.origin + ray.direction * 100f);
         }
     }
 
@@ -86,5 +109,7 @@ public class PointerScript : NetworkBehaviour
         {
             transform.rotation = Quaternion.LookRotation(direction);
         }
+        
+        FireRuntimeRaycast();
     }
 }
