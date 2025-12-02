@@ -5,12 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PointerScript : NetworkBehaviour
 {
+    [SerializeField] private GameObject hitCircle;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private GameObject raycastOrigin;
     [SerializeField] private HandMovementScript handMovementScript;
     [SerializeField] private NetworkObject playerBall;
     [SerializeField] private float forceMultiplier = 20;
-    
+    [SerializeField] float offset;
+
     private void OnEnable()
     {
        transform.position = playerBall.transform.position;
@@ -46,6 +48,7 @@ public class PointerScript : NetworkBehaviour
             enabled = false;
             handMovementScript.enabled = false;
             lineRenderer.enabled = false;
+            hitCircle.SetActive(false);
         }
     }
 
@@ -56,15 +59,28 @@ public class PointerScript : NetworkBehaviour
         Ray ray = new Ray(raycastOrigin.transform.position, raycastOrigin.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
+            Vector3 offsetHitPoint = hit.point + hit.normal * offset;
+            
             lineRenderer.enabled = true;
             lineRenderer.SetPosition(0, ray.origin);
-            lineRenderer.SetPosition(1, hit.point);
+            lineRenderer.SetPosition(1, offsetHitPoint);
+
+            if (hitCircle != null)
+            {
+                hitCircle.SetActive(true);
+                hitCircle.transform.position = offsetHitPoint;
+            }
         }
         else
         {
             lineRenderer.enabled = true;
             lineRenderer.SetPosition(0, ray.origin);
             lineRenderer.SetPosition(1, ray.origin + ray.direction * 100f);
+
+            if (hitCircle != null)
+            {
+                hitCircle.SetActive(false);
+            }
         }
     }
 
