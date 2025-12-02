@@ -7,11 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SHandMat
+  m_Name: SSnailMat
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - DR_ENABLE_LIGHTMAP_DIR
   - DR_OUTLINE_ON
   - DR_RIM_ON
   - DR_SPECULAR_ON
@@ -19,9 +20,9 @@ Material:
   - _GRADIENTSPACE_WORLD
   - _OUTLINESPACE_SCREEN
   - _TEXTUREBLENDINGMODE_MULTIPLY
-  - _UNITYSHADOWMODE_COLOR
   m_InvalidKeywords:
   - _CELPRIMARYMODE_NONE
+  - _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -36,11 +37,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: c2db6f61df8509f4c85842e338638468, type: 3}
+        m_Texture: {fileID: 2800000, guid: d35f712682463d24c8bac38be14cfce9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: bddbb703b6facf846b5abb5a81bc42b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CelCurveTexture:
@@ -114,7 +115,7 @@ Material:
     - _BumpScale: 1
     - _CameraDistanceImpact: 0
     - _CelExtraEnabled: 0
-    - _CelNumSteps: 3
+    - _CelNumSteps: 7
     - _CelPrimaryMode: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -131,7 +132,7 @@ Material:
     - _FlatRimLightAlign: 0
     - _FlatRimSize: 0.5
     - _FlatSpecularEdgeSmoothness: 0
-    - _FlatSpecularSize: 0.706
+    - _FlatSpecularSize: 0.62
     - _Flatness: 1
     - _FlatnessExtra: 1
     - _GlossMapScale: 0
@@ -153,7 +154,7 @@ Material:
     - _OutlineEnabled: 1
     - _OutlineScale: 1
     - _OutlineSpace: 0
-    - _OutlineWidth: 1.5
+    - _OutlineWidth: 1
     - _OverrideLightmapDir: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -172,7 +173,7 @@ Material:
     - _Surface: 0
     - _TextureBlendingMode: 0
     - _TextureImpact: 1
-    - _UnityShadowMode: 2
+    - _UnityShadowMode: 0
     - _UnityShadowOcclusion: 0
     - _UnityShadowPower: 0.2
     - _UnityShadowSharpness: 1
@@ -181,24 +182,24 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.04940605, g: 1, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDim: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
-    - _ColorDimSteps: {r: 0.04940603, g: 1, b: 0, a: 1}
+    - _ColorDimSteps: {r: 0.5377358, g: 0.37685636, b: 0, a: 1}
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0, g: 0.29621875, b: 0.8113208, a: 1}
-    - _FlatSpecularColor: {r: 0.07501979, g: 0.6886792, b: 0, a: 1}
+    - _FlatRimColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+    - _FlatSpecularColor: {r: 0.754717, g: 0.6729214, b: 0.43787825, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _UnityShadowColor: {r: 0.03462831, g: 0.6792453, b: 0, a: 1}
+    - _UnityShadowColor: {r: 0.6415094, g: 0.6225231, b: 0.5355998, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &9209549438180625976
+--- !u!114 &641750343638630247
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
