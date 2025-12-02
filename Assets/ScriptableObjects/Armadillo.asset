@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Armadillo
   m_EditorClassIdentifier: 
   ballType: 0
-  price: 20
+  price: 0
   index: 0

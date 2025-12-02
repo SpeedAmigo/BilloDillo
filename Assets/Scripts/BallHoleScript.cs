@@ -11,6 +11,7 @@ public class BallHoleScript : NetworkBehaviour
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+        _soundPlayer = GetComponent<SoundPlayer>();
     }
     
     private void OnCollisionEnter(Collision collision)
