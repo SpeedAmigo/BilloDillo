@@ -13,6 +13,7 @@ public class GameplayManager : NetworkBehaviour
     
     public static GameplayManager Instance;
     
+    [SerializeField] private PlayerBallScript playerBallScript;
     [SerializeField] private NetworkObject playerBall;
     [SerializeField] private NetworkObject pointer;
     [SerializeField] private NetworkObject ballPicker;
@@ -186,6 +187,8 @@ public class GameplayManager : NetworkBehaviour
         Debug.Log("NextTurn");
         
         if (_playerConnections.Count == 0) return;
+        
+        playerBallScript.ChangeToArmadillo();
         
         _currentPlayerIndex = (_currentPlayerIndex + 1)% _playerConnections.Count;
         playerBall.GiveOwnership(_playerConnections[_currentPlayerIndex]);

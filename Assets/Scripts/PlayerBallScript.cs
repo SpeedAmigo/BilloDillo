@@ -9,6 +9,9 @@ using UnityEngine;
 public class PlayerBallScript : NetworkBehaviour
 {
     public PlayerBallLogic playerBallLogic;
+
+    [SerializeField] private GameObject[] visualArray;
+    [SerializeField] private PlayerBallLogic armadilloLogic;
     
     [SerializeField] private float defaultMass;
     [SerializeField] private float snailMass;
@@ -103,6 +106,18 @@ public class PlayerBallScript : NetworkBehaviour
         }
         
         StartCoroutine(MoveDelayCoroutine());
+    }
+
+    [ObserversRpc(BufferLast = true)]
+    public void ChangeToArmadillo()
+    {
+        for (int i = 0; i < visualArray.Length; i++)
+        {
+            visualArray[i].SetActive(false);
+        }
+        
+        visualArray[0].SetActive(true);
+        playerBallLogic = armadilloLogic;
     }
     
     private void Update()

@@ -5281,6 +5281,13 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 3374872568275214582}
   _networkObjectCache: {fileID: 0}
   playerBallLogic: {fileID: 11400000, guid: 0e073801f5a4eb84a89f98cf778204e1, type: 2}
+  visualArray:
+  - {fileID: 919132147937838967}
+  - {fileID: 919132149616852665}
+  - {fileID: 919132148950243276}
+  - {fileID: 919132148039289814}
+  - {fileID: 919132149564747988}
+  armadilloLogic: {fileID: 11400000, guid: 0e073801f5a4eb84a89f98cf778204e1, type: 2}
   defaultMass: 5
   snailMass: 200
   scaleUpBy: 0.2
@@ -7214,6 +7221,7 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 1170010773}
   _networkObjectCache: {fileID: 0}
+  playerBallScript: {fileID: 800512616}
   playerBall: {fileID: 3374872568275214582}
   pointer: {fileID: 724935783}
   ballPicker: {fileID: 1676756232}
