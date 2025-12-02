@@ -35,16 +35,20 @@ public class PlayerBallScript : NetworkBehaviour
     private float _shootForce;
     private int _defaultLayer;
     private int _ghostLayer;
+    private Vector3 _startPosition;
+    private SoundPlayer _soundPlayer;
     
     private void Awake()
     {
         _body = GetComponent<Rigidbody>();
+        _soundPlayer = GetComponent<SoundPlayer>();
     }
 
     private void Start()
     {
         _defaultLayer = LayerMask.NameToLayer("Default");
         _ghostLayer = LayerMask.NameToLayer("RabbitGhost");
+        _startPosition = transform.position;
     }
     
     public override void OnOwnershipClient(NetworkConnection prevOwner)
@@ -246,6 +250,16 @@ public class PlayerBallScript : NetworkBehaviour
                 PufferfishCollision();
                 break;
             }
+        }
+        
+        if (collision.gameObject.CompareTag("Hole"))
+        {
+            if (playerBallLogic.ballType == PlayerBallLogicType.Hedgehog) return;
+            
+            _soundPlayer.PlayRandomGlobal("HoleFall");
+            _body.linearVelocity = Vector3.zero;
+            _body.angularVelocity = Vector3.zero;
+            transform.position = _startPosition;
         }
     }
 }
