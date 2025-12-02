@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PointerScript : NetworkBehaviour
 {
+    [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private GameObject hitCircle;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private GameObject raycastOrigin;
@@ -33,8 +34,10 @@ public class PointerScript : NetworkBehaviour
         float forceMagnitude = force * forceMultiplier;
         
         ball.ShootBall(direction, forceMagnitude);
+        
+        soundPlayer.PlayRandomGlobal("HandHit");
     }
-
+    
     public override void OnOwnershipClient(NetworkConnection prevOwner)
     {
         if (IsOwner)

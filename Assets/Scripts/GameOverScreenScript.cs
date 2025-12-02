@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverScreenScript : MonoBehaviour
 {
@@ -28,5 +29,10 @@ public class GameOverScreenScript : MonoBehaviour
 
         if (gameLostText != null)
             gameLostText.gameObject.SetActive(!isWinner);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

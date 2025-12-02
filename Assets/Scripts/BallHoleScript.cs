@@ -6,6 +6,7 @@ public class BallHoleScript : NetworkBehaviour
 {
     [SerializeField] private GameObject hedgehogVisual;
     private Collider _collider;
+    private SoundPlayer _soundPlayer;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class BallHoleScript : NetworkBehaviour
             var netObj = gameBall.GetComponent<NetworkObject>();
             
             GameplayManager.Instance.AddPlayerBall(gameBall);
+            _soundPlayer.PlayRandomGlobal("BallFall");
             
             Despawn(netObj);
         }
@@ -29,6 +31,8 @@ public class BallHoleScript : NetworkBehaviour
     {
         _collider.enabled = false;
         hedgehogVisual.SetActive(true);
+        
+        _soundPlayer.PlayRandomGlobal("HoleLock");
         
         LockHoleClients();
     }
