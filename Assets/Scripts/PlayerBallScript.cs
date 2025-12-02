@@ -61,10 +61,12 @@ public class PlayerBallScript : NetworkBehaviour
         if (IsOwner)
         {
             if (_haveShot) return;
-            
-            ShootBallServer(direction, force);
 
-            _haveShot = true;
+            if (force > 0)
+            {
+                ShootBallServer(direction, force);
+                _haveShot = true;
+            }
         }
     }
     
@@ -74,6 +76,7 @@ public class PlayerBallScript : NetworkBehaviour
         if (GameplayManager.Instance.players.Count < 2)
         {
             Debug.Log("Wait for other player to join!");
+            _haveShot = false;
             return;
         }
         
