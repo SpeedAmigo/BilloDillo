@@ -5,7 +5,6 @@ using FishNet.Connection;
 using FishNet.Object;
 using FishNet.Object.Synchronizing;
 using UnityEngine;
-using UnityEngine.Jobs;
 
 public class PlayerBallScript : NetworkBehaviour
 {
@@ -203,6 +202,16 @@ public class PlayerBallScript : NetworkBehaviour
         }
     }
 
+    private void HedgehogCollision(Collision collision)
+    {
+        if (playerBallLogic.ballType != PlayerBallLogicType.Hedgehog) return;
+
+        if (collision.gameObject.TryGetComponent(out BallHoleScript holeScript))
+        {
+            holeScript.LockHole();
+        }
+    }
+
     #endregion
     
     private void OnCollisionEnter(Collision collision)
@@ -211,6 +220,7 @@ public class PlayerBallScript : NetworkBehaviour
         {
             case PlayerBallLogicType.Hedgehog:
             {
+                HedgehogCollision(collision);
                 break;
             }
             case PlayerBallLogicType.Pufferfish:

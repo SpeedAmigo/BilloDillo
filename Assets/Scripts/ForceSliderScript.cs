@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ForceSliderScript : MonoBehaviour, IEndDragHandler
+public class ForceSliderScript : MonoBehaviour, IEndDragHandler, IBeginDragHandler
 {
+    public static bool IsDraggingHandle = false;
     public static event Action<float> OnHandleRelease;
     
     [SerializeField] private float returnSpeed;
@@ -40,6 +41,12 @@ public class ForceSliderScript : MonoBehaviour, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        IsDraggingHandle = false;
         HandleRelease();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        IsDraggingHandle = true;
     }
 }

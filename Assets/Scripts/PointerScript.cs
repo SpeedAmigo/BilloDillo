@@ -49,6 +49,9 @@ public class PointerScript : NetworkBehaviour
     {
         if (!IsOwner) return;
 
+        if (UIUtility.IsPointerOverUI()) return;
+        //if (ForceSliderScript.IsDraggingHandle) return;
+
         bool mouseAvailable = Mouse.current != null && Mouse.current.rightButton != null;
         bool touchAvailable = Touchscreen.current != null && Touchscreen.current.primaryTouch != null;
         
